@@ -164,14 +164,6 @@
 		<project id="LIDAR_v_01.null.570913467" name="LIDAR_v_01"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.1122547112;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.1122547112.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1603220433;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1744888630">
-			<autodiscovery enabled="false" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.777634417;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.777634417.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1372801639;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1670759982">
-			<autodiscovery enabled="false" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="scannerConfiguration"/>
 </cproject>

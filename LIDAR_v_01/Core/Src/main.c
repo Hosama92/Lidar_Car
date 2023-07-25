@@ -121,7 +121,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   RX_Struct_Init();
   RX_Init();
-  printf(" Inin OK!!\n\n\r");
+  printf(" Init OK!!\n\n\r"); // 리셋 버튼 누를때마다 Init이 출력되게 함
   HAL_TIM_Base_Start_IT(&htim1);
   /* USER CODE END 2 */
 
@@ -137,7 +137,7 @@ int main(void)
 	  RX_Doing();
 
 	  // LED Timer
-	  if (led_1)
+	  if (led_1) // LED동작과 동시진행하는지 여부 판단용
 	  {
 		  led_1 = false;
 		  HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
