@@ -25,17 +25,42 @@ void RX_Doing()
 {
 	if (sRX.pop_cnt != sRX.push_cnt) // pop와 push가 다를때
 	{
-		uint8_t tmp = sRX.rxbuf[sRX.pop_cnt++]; // tmp에 rxbuf값을 넣어준다
+		sRX.pop_cnt++;
+		uint8_t tmp = sRX.rxbuf[sRX.strpt_cnt]; // tmp에 rxbuf값을 넣어준다
+		//uint8_t tmp = sRX.rxbuf[sRX.pop_cnt++]; // tmp에 rxbuf값을 넣어준다
 		sRX.pop_cnt %= RX_SIZE; // pop카운트는 계속 증가하지만 1024를 넘으면 초기화된다
 
 		// debug check
-		printf(" %02X", tmp); // tmp에 값은 1바이트씩 저장되있고 그걸 2자리의 16진수로 프린트한다
-		if (!(sRX.pop_cnt % 10)) // 값을 10개 출력할때마다 줄바꿈을 해준다
+		if(tmp != 0xAA)
+			printf("error*******************************************************\n\r");
+		if(sRX.pop_cnt == sRX.strpt_cnt +3)
 		{
-			printf("\n\r");
+			sRX.samp_num = sRX.rxbuf[sRX.strpt_cnt+3];
+			printf("LSN = %d\n\r",sRX.rxbuf[sRX.strpt_cnt+3]);
 		}
+		if(sRX.pop_cnt == sRX.strpt_cnt + 5)
+		{
+			printf("FSA = 0x%02X%02X\n\r",sRX.rxbuf[sRX.strpt_cnt+5],sRX.rxbuf[sRX.strpt_cnt+4]);
+		}
+		if(sRX.pop_cnt == sRX.strpt_cnt + 7)
+		{
+			printf("LSA = 0x%02X%02X\n\r",sRX.rxbuf[sRX.strpt_cnt+7],sRX.rxbuf[sRX.strpt_cnt+6]);
+		}
+		if(sRX.pop_cnt == sRX.strpt_cnt + 10)
+		{
+			for(int i = 0; i < )
+		}
+//		printf(" tmp_X = %02X , tmp_D = %03d", tmp,tmp);// tmp에 값은 1바이트씩 저장되있고 그걸 2자리의 16진수로 프린트한다
+//		printf("\n\r");
+//		printf("strpt_cnt = %04d",sRX.strpt_cnt);
+//		printf("\n\r");
+//		if (!(sRX.pop_cnt % 10)) // 값을 10개 출력할때마다 줄바꿈을 해준다
+//		{
+//			printf("\n\r");
+//		}
 	}
 }
+
 
 int __io_putchar(int ch)
 {
@@ -48,6 +73,26 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) // 인터럽트로 값�
 	if (huart->Instance == huart5.Instance) // UART5에서 instance가 발생하면
 	{
 		sRX.rxbuf[sRX.push_cnt++] = sRX.tmp;
+		if(sRX.tmp == 0xAA)
+		{
+			sRX.strpt_cnt = sRX.push_cnt;
+		}
+		if(sRX.tmp == 0x55 && sRX.push_cnt == sRX.strpt_cnt + 1)
+		{
+			sRX.strpt_cnt = sRX.push_cnt-2;
+			if(sRX.strpt_cnt < 0)
+				sRX.strpt_cnt = sRX.push_cnt+1022;
+		}
+
+
+//		if (sRX.tmp == 0XAA)
+//			sRX.strpt_step = 1;
+//		if (sRX.tmp == 0X55 && sRX.strpt_step == 1)
+//		{
+//			sRX.strpt_cnt = sRX.push_cnt-2;
+//			sRX.strpt_step = 0;
+//		}
+
 		// tmp에 저장된 값을 rxbuf로 수신
 		sRX.push_cnt %= RX_SIZE; // 오버플로우 방지를 위해 1024넘어가면 자릿수 초기화
 		HAL_UART_Receive_IT(&huart5, &sRX.tmp, 1);
