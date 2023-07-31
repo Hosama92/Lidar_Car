@@ -1,4 +1,5 @@
-Core/Src/rx.o: ../Core/Src/rx.c ../Core/Inc/rx.h ../Core/Inc/main.h \
+Core/Src/rx.o: ../Core/Src/rx.c ../Core/Inc/all.h ../Core/Inc/rx.h \
+ ../Core/Inc/task.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -31,7 +32,9 @@ Core/Src/rx.o: ../Core/Src/rx.c ../Core/Inc/rx.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
+../Core/Inc/all.h:
 ../Core/Inc/rx.h:
+../Core/Inc/task.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:

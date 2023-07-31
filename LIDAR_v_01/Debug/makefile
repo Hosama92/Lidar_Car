@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (11.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -61,7 +61,7 @@ main-build: LIDAR_v_01.elf secondary-outputs
 
 # Tool invocations
 LIDAR_v_01.elf LIDAR_v_01.map: $(OBJS) $(USER_OBJS) C:\Users\KHY\STM32CubeIDE\workspace_1.12.1\LIDAR_v_01\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "LIDAR_v_01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\KHY\STM32CubeIDE\workspace_1.12.1\LIDAR_v_01\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIDAR_v_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "LIDAR_v_01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\KHY\STM32CubeIDE\workspace_1.12.1\LIDAR_v_01\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LIDAR_v_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
