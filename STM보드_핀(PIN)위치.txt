@@ -1,0 +1,16 @@
+<BLE모듈> UART4
+RXD(파란색) -> PC10
+TXD(주황색) -> PC11
+5V전원(흰색) -> 5V
+GND -> GND
+
+<LIDAR센서> UART5
+RX(파란색) -> PD2
+
+<MOTOR드라이버> Tim1
+GND(검정_아래) -> GND
+A-1B(파랑) -> PE11
+A-1A(갈색) -> PE9
+B-2A(주황) -> PE13
+B-1A(초록) -> PE14
+
