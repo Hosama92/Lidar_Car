@@ -2,3 +2,4 @@
 ../Core/Src/task.c:12:6:Task_Init	8	static
 ../Core/Src/task.c:20:6:Task_Doing	4	static
 ../Core/Src/task.c:33:6:motor_test	24	static
+../Core/Src/task.c:57:6:motor_move	16	static

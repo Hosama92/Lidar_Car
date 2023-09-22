@@ -9,5 +9,8 @@
 #include "rx.h"
 #include "task.h"
 #include "main.h"
+#include "math.h"
+
+
 
 #endif /* INC_ALL_H_ */

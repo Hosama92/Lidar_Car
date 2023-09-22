@@ -129,10 +129,15 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  // RX MSG Check
-	  //RX_Doing();
-	 //motor_test();
-	  RX_Debug();
+	//RX MSG Check;
+	 //RX_Doing(); //LIDAR�???�� ?��?��
+	 //motor_test();  //모터 �???��?��?�� : PWM�???��범위 ???�� 600-1000
+	  //RX_Debug3();//
+	  RX_Doing2();
+	// motor_move(RX_BLE2());
+	// RX_BLE2();
+	 //HAL_Delay(1000);
+
   }
   /* USER CODE END 3 */
 }
@@ -334,7 +339,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 9600;
+  huart4.Init.BaudRate = 115200;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
