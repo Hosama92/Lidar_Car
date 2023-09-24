@@ -1,0 +1,4 @@
+../Core/Src/task.c:7:6:Task_Struct_Init	0	static
+../Core/Src/task.c:12:6:Task_Init	8	static
+../Core/Src/task.c:20:6:Task_Doing	0	static
+../Core/Src/task.c:33:6:motor_test	16	static
